@@ -1,0 +1,786 @@
+/* ============================================================
+   VARIABLES
+   ============================================================ */
+:root {
+    --sx-1: #04BF9D;
+    --sx-2: #04BFAD;
+    --sx-3: #027373;
+    --sx-4: #5FCDD9;
+    --sx-5: #172026;
+}
+
+/* ============================================================
+   PAGE AUTH
+   ============================================================ */
+.auth-page {
+    font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, var(--sx-5) 0%, #0a2626 40%, var(--sx-3) 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+/* ============================================================
+   AUTH HEADER
+   ============================================================ */
+.auth-header-bar {
+    background-color: #ffffff;
+    border-bottom: 1px solid rgba(23,32,38,0.05);
+}
+.auth-header-logo-img {
+    height: 56px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 16px;
+}
+
+/* ============================================================
+   CARTE PRINCIPALE
+   ============================================================ */
+.auth-box {
+    background-color: #fff;
+    border-radius: 24px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    width: 920px;
+    max-width: 100%;
+    min-height: 480px;
+    max-height: 95vh;
+    display: flex;
+}
+
+/* ============================================================
+   FORMULAIRES
+   ============================================================ */
+.form-container {
+    flex: 1;
+    padding: 20px 32px 16px;
+    transition: transform 0.8s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.form-container::-webkit-scrollbar {
+    width: 3px;
+}
+.form-container::-webkit-scrollbar-thumb {
+    background: rgba(4, 191, 157, 0.3);
+    border-radius: 3px;
+}
+
+.sign-in-container {
+    transform: translateX(0);
+}
+.sign-up-container {
+    transform: translateX(100%);
+}
+.auth-box.right-panel-active .sign-in-container {
+    transform: translateX(-100%);
+}
+.auth-box.right-panel-active .sign-up-container {
+    transform: translateX(0);
+}
+
+/* Titres */
+.auth-box h2 {
+    font-size: 20px;
+    margin-bottom: 2px;
+    color: var(--sx-5);
+    font-weight: 700;
+}
+
+.auth-subtitle {
+    color: #888;
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+
+/* ============================================================
+   GREETING FORMULAIRES (Bon retour / Rejoignez-nous)
+   ============================================================ */
+.form-greeting {
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.form-greeting-emoji {
+    font-size: 26px;
+    display: block;
+    margin-bottom: 2px;
+    animation: formGreetingPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes formGreetingPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15) rotate(5deg); }
+}
+
+.form-greeting h2 {
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 2px;
+    background: linear-gradient(135deg, var(--sx-5) 0%, var(--sx-3) 50%, var(--sx-1) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.form-greeting-dot {
+    background: linear-gradient(135deg, var(--sx-1), var(--sx-4));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.form-greeting .auth-subtitle {
+    color: #999;
+    font-size: 12px;
+    margin-bottom: 0;
+}
+
+/* ============================================================
+   INPUTS
+   ============================================================ */
+.input-group-auth {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.input-group-auth input,
+.auth-select {
+    background-color: #f7f8fa;
+    border: 1.5px solid #e4e8ee;
+    padding: 9px 40px 9px 38px;
+    font-size: 13px;
+    border-radius: 10px;
+    width: 100%;
+    outline: none;
+    transition: all 0.25s ease;
+    font-family: 'Poppins', system-ui, sans-serif;
+    color: #333;
+}
+
+.input-group-auth input:focus,
+.auth-select:focus {
+    border-color: var(--sx-1);
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(4, 191, 157, 0.1);
+}
+
+.input-group-auth input::placeholder {
+    color: #aab;
+}
+
+/* Icône gauche */
+.input-icon-left {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #bbb;
+    font-size: 14px;
+    z-index: 2;
+    pointer-events: none;
+    transition: color 0.25s;
+}
+.input-group-auth:focus-within .input-icon-left {
+    color: var(--sx-1);
+}
+
+/* ============================================================
+   SELECT STYLÉ
+   ============================================================ */
+.select-wrapper {
+    position: relative;
+}
+
+.auth-select {
+    padding: 9px 40px 9px 38px;
+    color: #666;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    background-color: #f7f8fa;
+    border: 1.5px solid #e4e8ee;
+    border-radius: 10px;
+    font-size: 13px;
+    font-family: 'Poppins', system-ui, sans-serif;
+    transition: all 0.25s ease;
+}
+
+.auth-select:focus {
+    border-color: var(--sx-1);
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(4, 191, 157, 0.1);
+}
+
+.auth-select option {
+    padding: 10px;
+    font-size: 13px;
+    background: #fff;
+    color: #333;
+}
+
+.auth-select option:checked {
+    background: linear-gradient(135deg, rgba(4, 191, 157, 0.1), rgba(4, 191, 157, 0.05));
+    color: var(--sx-3);
+}
+
+.select-arrow {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #bbb;
+    font-size: 12px;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+.select-wrapper:focus-within .select-arrow {
+    color: var(--sx-1);
+    transform: translateY(-50%) rotate(180deg);
+}
+
+/* ============================================================
+   TOGGLE MOT DE PASSE (ŒIL)
+   ============================================================ */
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #bbb;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 3px;
+    z-index: 2;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.toggle-password:hover {
+    color: var(--sx-1);
+}
+
+/* ============================================================
+   OPTIONS CONNEXION
+   ============================================================ */
+.login-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4px 0 10px;
+    font-size: 11.5px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #777;
+    cursor: pointer;
+}
+.remember-me input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+    margin: 0;
+    accent-color: var(--sx-1);
+    cursor: pointer;
+}
+
+.forgot-password {
+    color: var(--sx-1);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 11.5px;
+    transition: color 0.2s;
+}
+.forgot-password:hover {
+    color: var(--sx-3);
+}
+
+.link-terms {
+    color: var(--sx-1);
+    text-decoration: none;
+}
+.link-terms:hover {
+    text-decoration: underline;
+}
+
+/* ============================================================
+   BOUTON PRINCIPAL
+   ============================================================ */
+.auth-btn {
+    background: linear-gradient(135deg, var(--sx-1) 0%, var(--sx-3) 100%);
+    color: #fff;
+    font-size: 13px;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', system-ui, sans-serif;
+    box-shadow: 0 4px 18px rgba(4, 191, 157, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.auth-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(4, 191, 157, 0.35);
+}
+.auth-btn:active {
+    transform: translateY(0);
+}
+
+/* ============================================================
+   SOCIAL LOGIN
+   ============================================================ */
+.social-login {
+    margin: 10px 0 8px;
+    text-align: center;
+}
+
+.social-divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+.social-divider::before,
+.social-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #e8e8e8;
+}
+.social-divider span {
+    font-size: 10.5px;
+    color: #aaa;
+    white-space: nowrap;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.social-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    transition: all 0.25s ease;
+}
+.social-icon.facebook { background: #1877f2; }
+.social-icon.google { background: #ea4335; }
+.social-icon.twitter { background: #1a1a1a; }
+.social-icon:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================================================
+   FOOTER FORMULAIRE
+   ============================================================ */
+.form-footer {
+    text-align: center;
+    padding-top: 8px;
+    border-top: 1px solid #f0f0f0;
+    font-size: 11.5px;
+    margin-top: auto;
+    color: #888;
+}
+.form-footer a {
+    color: var(--sx-1);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+.form-footer a:hover {
+    color: var(--sx-3);
+    text-decoration: underline;
+}
+
+/* ============================================================
+   TOGGLE CONTAINER
+   ============================================================ */
+.toggle-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.8s ease-in-out;
+    z-index: 100;
+    border-radius: 24px;
+}
+
+.auth-box.right-panel-active .toggle-container {
+    transform: translateX(-100%);
+}
+
+.toggle {
+    background: linear-gradient(160deg, var(--sx-5) 0%, #0a2e2e 35%, var(--sx-3) 70%, var(--sx-1) 100%);
+    color: #fff;
+    height: 100%;
+    position: relative;
+    left: -100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: transform 0.8s ease-in-out;
+}
+.auth-box.right-panel-active .toggle {
+    transform: translateX(50%);
+}
+
+/* ============================================================
+   PANNEAUX TOGGLE
+   ============================================================ */
+.toggle-panel {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 30px;
+    text-align: center;
+    top: 0;
+    transition: transform 0.8s ease-in-out;
+}
+
+.toggle-left {
+    transform: translateX(-200%);
+}
+.auth-box.right-panel-active .toggle-left {
+    transform: translateX(0);
+}
+
+.toggle-right {
+    right: 0;
+    transform: translateX(0);
+}
+.auth-box.right-panel-active .toggle-right {
+    transform: translateX(200%);
+}
+
+/* ============================================================
+   LOGO TOGGLE
+   ============================================================ */
+.toggle-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+.toggle-logo:hover {
+    transform: scale(1.05);
+}
+.toggle-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ============================================================
+   GREETING TOGGLE (Bon retour / Rejoignez-nous)
+   ============================================================ */
+.toggle-greeting {
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.greeting-emoji {
+    font-size: 30px;
+    display: block;
+    margin-bottom: 4px;
+    animation: greetingBounce 2s ease-in-out infinite;
+}
+
+@keyframes greetingBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+.toggle-greeting h2 {
+    font-size: 24px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin: 0;
+    background: linear-gradient(135deg, #fff 0%, var(--sx-4) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.greeting-dot {
+    background: linear-gradient(135deg, var(--sx-1), var(--sx-4));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 30px;
+}
+
+.toggle-panel p {
+    margin-bottom: 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 260px;
+}
+
+.toggle-brand-line {
+    font-size: 13px !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+    margin-bottom: 2px !important;
+}
+
+.brand-highlight {
+    color: var(--sx-4);
+    font-weight: 800;
+    text-shadow: 0 0 20px rgba(95, 205, 217, 0.4);
+}
+
+/* ============================================================
+   GALERIE IMAGES
+   ============================================================ */
+.toggle-gallery {
+    width: 100%;
+    max-width: 260px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 6px;
+    margin-top: 4px;
+}
+
+.gallery-item {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    aspect-ratio: 16/10;
+    transition: all 0.3s ease;
+}
+.gallery-item:hover {
+    transform: scale(1.03);
+    border-color: rgba(95, 205, 217, 0.4);
+}
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-large {
+    grid-column: 1 / -1;
+    aspect-ratio: 2.2/1;
+}
+
+/* ============================================================
+   FEATURES
+   ============================================================ */
+.toggle-features {
+    list-style: none;
+    padding: 0;
+    margin: 4px 0 0;
+    width: 100%;
+    max-width: 260px;
+}
+.toggle-features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    margin-bottom: 6px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    transition: all 0.25s ease;
+}
+.toggle-features li:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(95, 205, 217, 0.3);
+    transform: translateX(4px);
+}
+
+.feature-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: rgba(95, 205, 217, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.feature-icon i {
+    color: var(--sx-4);
+    font-size: 14px;
+}
+
+.toggle-features span {
+    font-size: 11.5px;
+    color: rgba(255, 255, 255, 0.85);
+    text-align: left;
+    line-height: 1.3;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px) {
+    .auth-page {
+        padding: 10px;
+        align-items: flex-start;
+        padding-top: 15px;
+    }
+
+    .auth-box {
+        flex-direction: column;
+        width: 100%;
+        min-height: auto;
+        max-height: none;
+        border-radius: 20px;
+    }
+
+    .form-container {
+        padding: 22px 20px 16px;
+        min-height: auto;
+    }
+
+    .toggle-container {
+        position: relative;
+        left: 0;
+        width: 100%;
+        height: 180px;
+        border-radius: 0 0 20px 20px;
+    }
+
+    .auth-box.right-panel-active .toggle-container {
+        transform: none;
+    }
+
+    .toggle {
+        left: 0;
+        width: 100%;
+    }
+
+    .auth-box.right-panel-active .toggle {
+        transform: none;
+    }
+
+    .toggle-panel {
+        width: 100%;
+        padding: 16px;
+    }
+
+    .toggle-left,
+    .toggle-right {
+        transform: none;
+    }
+    .auth-box.right-panel-active .toggle-left,
+    .auth-box.right-panel-active .toggle-right {
+        transform: none;
+    }
+
+    .toggle-left { display: none; }
+
+    .toggle-logo {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 6px;
+    }
+
+    .toggle-greeting h2 { font-size: 18px; }
+    .greeting-emoji { font-size: 24px; margin-bottom: 2px; }
+    .toggle-panel p { font-size: 11px; margin-bottom: 6px; }
+
+    .toggle-gallery { display: none; }
+    .toggle-features { display: none; }
+
+    .auth-box.right-panel-active .sign-in-container {
+        transform: none;
+        display: none;
+    }
+    .auth-box.right-panel-active .sign-up-container {
+        transform: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-container {
+        padding: 18px 16px 14px;
+    }
+
+    .auth-box h2 {
+        font-size: 18px;
+    }
+
+    .form-greeting-emoji {
+        font-size: 22px;
+    }
+
+    .form-greeting h2 {
+        font-size: 18px;
+    }
+
+    .login-options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .input-group-auth input,
+    .auth-select {
+        padding: 8px 36px 8px 34px;
+        font-size: 12px;
+    }
+
+    .input-group-auth {
+        margin-bottom: 8px;
+    }
+
+    .auth-btn {
+        padding: 9px 18px;
+        font-size: 12px;
+    }
+
+    .social-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+    }
+
+    .toggle-greeting h2 { font-size: 16px; }
+    .greeting-emoji { font-size: 20px; }
+}

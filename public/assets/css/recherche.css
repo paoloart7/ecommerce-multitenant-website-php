@@ -1,0 +1,418 @@
+/* ============================================
+   PAGE RECHERCHE - DESIGN
+   ============================================ */
+
+.recherche-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* En-tête */
+.recherche-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.recherche-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+}
+
+.recherche-header p {
+    color: #64748b;
+    font-size: 1.1rem;
+}
+
+/* Filtres */
+.recherche-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 50px;
+    background: white;
+    color: #64748b;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+    border-color: #04BF9D;
+    color: #04BF9D;
+}
+
+.filter-btn.active {
+    background: #04BF9D;
+    border-color: #04BF9D;
+    color: white;
+}
+
+/* Sections */
+.results-section {
+    margin-bottom: 3rem;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.section-title i {
+    color: #04BF9D;
+}
+
+/* ===== PRODUIT CARD - VERSION FINALE ===== */
+.produits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.produit-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.produit-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(4, 191, 157, 0.1);
+    border-color: #04BF9D;
+}
+
+.produit-image-link {
+    display: block;
+    text-decoration: none;
+}
+
+.produit-image {
+    height: 200px;
+    overflow: hidden;
+    background: #f8fafc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.produit-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.produit-card:hover .produit-image img {
+    transform: scale(1.05);
+}
+
+.produit-image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #cbd5e1;
+    font-size: 3rem;
+}
+
+.produit-info {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.produit-boutique {
+    color: #64748b;
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.produit-boutique:hover {
+    color: #04BF9D;
+}
+
+.produit-nom {
+    color: #1e293b;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    line-height: 1.3;
+    margin-bottom: 0.25rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 2.6rem;
+}
+
+.produit-nom:hover {
+    color: #04BF9D;
+}
+
+.produit-prix {
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.prix-normal, .prix-promo {
+    font-weight: 700;
+    color: #059669;
+    font-size: 1.1rem;
+}
+
+.prix-original {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    text-decoration: line-through;
+    margin-left: 0.5rem;
+}
+
+/* Bouton simple */
+.btn-add-to-cart-simple {
+    background: linear-gradient(135deg, #04BF9D, #027373);
+    color: white;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+    width: 100%;
+    margin-top: auto;
+}
+
+.btn-add-to-cart-simple:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(4, 191, 157, 0.3);
+}
+
+.btn-add-to-cart-simple i {
+    font-size: 1rem;
+}
+
+.btn-add-to-cart-simple.loading {
+    background: #94a3b8;
+    pointer-events: none;
+}
+
+.btn-add-to-cart-simple.loading i {
+    animation: spin 1s linear infinite;
+}
+
+/* Grille boutiques */
+.boutiques-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.boutique-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid #e2e8f0;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.boutique-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(4, 191, 157, 0.1);
+    border-color: #04BF9D;
+}
+
+.boutique-logo {
+    width: 70px;
+    height: 70px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #f8fafc;
+    flex-shrink: 0;
+}
+
+.boutique-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.boutique-logo-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-size: 2rem;
+}
+
+.boutique-info {
+    flex: 1;
+}
+
+.boutique-nom {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.25rem;
+}
+
+.boutique-description {
+    font-size: 0.9rem;
+    color: #64748b;
+    line-height: 1.4;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+/* Aucun résultat */
+.no-results {
+    text-align: center;
+    padding: 4rem 1rem;
+}
+
+.no-results i {
+    font-size: 5rem;
+    color: #cbd5e1;
+    margin-bottom: 1.5rem;
+}
+
+.no-results h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+}
+
+.no-results p {
+    color: #64748b;
+    margin-bottom: 2rem;
+}
+
+.btn-primary {
+    display: inline-block;
+    background: linear-gradient(135deg, #04BF9D, #027373);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(4, 191, 157, 0.3);
+}
+
+/* Notifications */
+.cart-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: white;
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    z-index: 9999;
+    animation: slideInRight 0.3s ease;
+    border-left: 4px solid #04BF9D;
+}
+
+.cart-notification i {
+    font-size: 1.5rem;
+    color: #04BF9D;
+}
+
+/* Animations */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .recherche-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .produits-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .produit-image {
+        height: 150px;
+    }
+    
+    .boutique-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .boutique-logo {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .produits-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .filter-btn {
+        width: 100%;
+    }
+}

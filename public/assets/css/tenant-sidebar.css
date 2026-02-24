@@ -1,0 +1,222 @@
+/* ==============================================
+   tenant-sidebar.css — THÈME SOMBRE (CORRIGÉ)
+   ============================================== */
+
+:root {
+    --ts-bg: #1e293b;
+    --ts-border: #334155;
+    --ts-text: #94a3b8;
+    --ts-text-hover: #ffffff;
+    --ts-active-bg: rgba(99, 102, 241, 0.15);
+    --ts-active-text: #818cf8;
+    --ts-width: 280px;
+}
+
+/* ── LAYOUT PRINCIPAL (CORRECTION) ── */
+.tenant-layout {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    background-color: #f8fafc;
+}
+
+.tenant-sidebar {
+    width: var(--ts-width);
+    background: var(--ts-bg);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    z-index: 1070;
+    border-right: 1px solid var(--ts-border);
+    box-shadow: 4px 0 24px rgba(0,0,0,0.15);
+}
+
+.tenant-main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    background-color: #f8fafc;
+}
+
+/* ── EN-TÊTE ── */
+.tenant-sidebar-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--ts-border);
+}
+
+.shop-brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.shop-logo-container {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 800;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.shop-logo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.shop-name-wrapper {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.shop-title {
+    font-weight: 700;
+    color: #fff;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.shop-status {
+    font-size: 0.75rem;
+    color: var(--ts-active-text);
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+/* ── NAVIGATION ── */
+.tenant-sidebar-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem 1rem;
+}
+
+.tenant-sidebar-content::-webkit-scrollbar {
+    width: 4px;
+}
+
+.tenant-sidebar-content::-webkit-scrollbar-thumb {
+    background: var(--ts-border);
+    border-radius: 4px;
+}
+
+.nav-section {
+    margin-bottom: 2rem;
+}
+
+.nav-section-title {
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #64748b;
+    letter-spacing: 0.08em;
+    padding-left: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.75rem 1rem;
+    color: var(--ts-text);
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    margin-bottom: 0.25rem;
+    border: 1px solid transparent;
+}
+
+.nav-item i {
+    font-size: 1.2rem;
+    width: 24px;
+    text-align: center;
+    color: var(--ts-text);
+    transition: color 0.2s;
+}
+
+.nav-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--ts-text-hover);
+}
+
+.nav-item:hover i {
+    color: #fff;
+}
+
+.nav-item.active {
+    background: var(--ts-active-bg);
+    color: var(--ts-active-text);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.nav-item.active i {
+    color: var(--ts-active-text);
+}
+
+/* CORRECTION - Suppression du footer */
+.tenant-sidebar-footer {
+    display: none !important;/* Cache complètement le footer */
+}
+
+/* Ajustement du contenu pour prendre tout l'espace */
+.tenant-sidebar-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem 1rem;
+    /* Pas de padding-bottom spécial car plus besoin */
+}
+
+/* ── RESPONSIVE MOBILE ── */
+@media (max-width: 991px) {
+    .tenant-sidebar {
+        position: fixed;
+        left: -100%;
+        height: 100vh;
+        transition: left 0.3s ease;
+        z-index: 1070;
+    }
+    
+    .tenant-sidebar.show {
+        left: 0;
+    }
+    
+    .sidebar-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1065;
+        backdrop-filter: blur(2px);
+    }
+    
+    .sidebar-overlay.show {
+        display: block;
+    }
+    
+    /* Ajustement du contenu principal sur mobile */
+    .tenant-main {
+        width: 100%;
+        margin-left: 0;
+    }
+}

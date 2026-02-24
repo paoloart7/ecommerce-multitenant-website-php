@@ -1,0 +1,547 @@
+/* ==============================================
+   TENANT COMMANDES DÉTAIL - DESIGN ULTRA PREMIUM
+   ============================================== */
+
+:root {
+    --primary: #04BF9D;
+    --primary-dark: #027373;
+    --primary-light: #04BFAD;
+    --primary-soft: rgba(4, 191, 157, 0.15);
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --info: #3b82f6;
+    --dark: #172026;
+    --gray-50: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-300: #cbd5e1;
+    --gray-400: #94a3b8;
+    --gray-500: #64748b;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --gray-800: #1e293b;
+    --gray-900: #0f172a;
+}
+
+/* ==============================================
+   LAYOUT PRINCIPAL
+   ============================================== */
+
+.commande-detail {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    background: linear-gradient(145deg, var(--gray-50) 0%, #ffffff 100%);
+    min-height: 100vh;
+}
+
+/* En-tête */
+.commande-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--gray-200);
+    position: relative;
+}
+
+.commande-header::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+    border-radius: 3px;
+}
+
+.commande-titre h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--gray-900);
+    margin: 0;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, var(--gray-900), var(--primary-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.commande-titre .commande-meta {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+    color: var(--gray-500);
+    font-size: 0.95rem;
+}
+
+.commande-titre .commande-meta i {
+    color: var(--primary);
+    margin-right: 0.3rem;
+}
+
+.btn-retour {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 2rem;
+    background: white;
+    color: var(--gray-700);
+    border: 2px solid var(--gray-200);
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.btn-retour:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    transform: translateX(-5px);
+    box-shadow: 0 10px 15px -3px rgba(4, 191, 157, 0.2);
+}
+
+.btn-retour i {
+    transition: transform 0.2s ease;
+}
+
+.btn-retour:hover i {
+    transform: translateX(-3px);
+}
+
+/* ==============================================
+   GRILLE D'INFORMATIONS
+   ============================================== */
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+@media (max-width: 992px) {
+    .info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.info-card {
+    background: white;
+    border-radius: 24px;
+    padding: 1.5rem;
+    border: 1px solid var(--gray-200);
+    box-shadow: 0 8px 20px -6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.info-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 30px -10px rgba(4, 191, 157, 0.15);
+    border-color: transparent;
+}
+
+.info-card:hover::before {
+    opacity: 1;
+}
+
+.info-card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px dashed var(--gray-200);
+}
+
+.info-card-header i {
+    font-size: 1.5rem;
+    color: var(--primary);
+    background: var(--primary-soft);
+    padding: 0.5rem;
+    border-radius: 12px;
+}
+
+.info-card-header h5 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin: 0;
+}
+
+.info-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.info-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed var(--gray-200);
+}
+
+.info-label {
+    color: var(--gray-500);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.info-value {
+    color: var(--gray-800);
+    font-weight: 600;
+    text-align: right;
+}
+
+.info-value.highlight {
+    color: var(--primary-dark);
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+/* Badge statut */
+.statut-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.statut-badge.en_attente {
+    background: rgba(245, 158, 11, 0.15);
+    color: #d97706;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+.statut-badge.confirmee {
+    background: rgba(59, 130, 246, 0.15);
+    color: #2563eb;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+.statut-badge.payee {
+    background: rgba(16, 185, 129, 0.15);
+    color: #059669;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+.statut-badge.en_preparation {
+    background: rgba(100, 116, 139, 0.15);
+    color: #475569;
+    border: 1px solid rgba(100, 116, 139, 0.3);
+}
+.statut-badge.expediee {
+    background: rgba(249, 115, 22, 0.15);
+    color: #c2410c;
+    border: 1px solid rgba(249, 115, 22, 0.3);
+}
+.statut-badge.livree {
+    background: rgba(4, 191, 157, 0.15);
+    color: #047857;
+    border: 1px solid rgba(4, 191, 157, 0.3);
+}
+.statut-badge.annulee {
+    background: rgba(239, 68, 68, 0.15);
+    color: #b91c1c;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* ==============================================
+   ACTIONS
+   ============================================== */
+
+.actions-card {
+    background: white;
+    border-radius: 24px;
+    padding: 1.5rem;
+    border: 1px solid var(--gray-200);
+    box-shadow: 0 8px 20px -6px rgba(0, 0, 0, 0.05);
+}
+
+.actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.btn-action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: 2px solid transparent;
+    background: var(--gray-100);
+    color: var(--gray-700);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.btn-action i {
+    font-size: 1rem;
+    transition: transform 0.2s ease;
+}
+
+.btn-action:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px -5px rgba(0, 0, 0, 0.1);
+}
+
+.btn-action:hover i {
+    transform: scale(1.1);
+}
+
+.btn-action.confirmer:hover {
+    background: rgba(4, 191, 157, 0.1);
+    color: var(--primary-dark);
+    border-color: var(--primary);
+}
+
+.btn-action.preparer:hover {
+    background: rgba(59, 130, 246, 0.1);
+    color: #2563eb;
+    border-color: #3b82f6;
+}
+
+.btn-action.expedier:hover {
+    background: rgba(249, 115, 22, 0.1);
+    color: #c2410c;
+    border-color: #f97316;
+}
+
+.btn-action.livrer:hover {
+    background: rgba(4, 191, 157, 0.1);
+    color: #047857;
+    border-color: #10b981;
+}
+
+.btn-action.annuler:hover {
+    background: rgba(239, 68, 68, 0.1);
+    color: #b91c1c;
+    border-color: #ef4444;
+}
+
+/* ==============================================
+   TABLEAUX
+   ============================================== */
+
+.table-card {
+    background: white;
+    border-radius: 24px;
+    border: 1px solid var(--gray-200);
+    overflow: hidden;
+    box-shadow: 0 8px 20px -6px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+}
+
+.table-card-header {
+    padding: 1.5rem;
+    background: linear-gradient(145deg, white, var(--gray-50));
+    border-bottom: 2px solid var(--gray-200);
+}
+
+.table-card-header h5 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.table-card-header h5 i {
+    color: var(--primary);
+    font-size: 1.3rem;
+}
+
+.table-premium {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.table-premium thead th {
+    background: var(--gray-50);
+    padding: 1.2rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--gray-500);
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid var(--gray-200);
+}
+
+.table-premium tbody td {
+    padding: 1.2rem 1rem;
+    border-bottom: 1px solid var(--gray-200);
+    color: var(--gray-700);
+    font-size: 0.95rem;
+}
+
+.table-premium tbody tr {
+    transition: all 0.2s ease;
+}
+
+.table-premium tbody tr:hover {
+    background: linear-gradient(145deg, var(--gray-50), white);
+}
+
+.table-premium tfoot {
+    background: var(--gray-50);
+}
+
+.table-premium tfoot td {
+    padding: 1rem;
+    font-weight: 600;
+}
+
+.table-premium .total-row {
+    background: linear-gradient(145deg, var(--gray-50), white);
+}
+
+.table-premium .total-row td {
+    padding: 1.2rem 1rem;
+    font-size: 1.1rem;
+    color: var(--gray-900);
+    border-top: 2px solid var(--gray-200);
+}
+
+.table-premium .montant {
+    font-weight: 700;
+    color: var(--primary-dark);
+}
+
+.table-premium .montant-total {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #059669;
+}
+
+/* ==============================================
+   ANIMATIONS
+   ============================================== */
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.info-card {
+    animation: slideInUp 0.4s ease forwards;
+    opacity: 0;
+}
+
+.info-card:nth-child(1) { animation-delay: 0.1s; }
+.info-card:nth-child(2) { animation-delay: 0.2s; }
+.info-card:nth-child(3) { animation-delay: 0.3s; }
+
+/* ==============================================
+   RESPONSIVE
+   ============================================== */
+
+@media (max-width: 768px) {
+    .commande-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .commande-titre h1 {
+        font-size: 1.8rem;
+    }
+    
+    .commande-titre .commande-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .btn-retour {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .actions-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .table-premium {
+        font-size: 0.9rem;
+    }
+    
+    .table-premium thead th {
+        padding: 1rem 0.5rem;
+        font-size: 0.75rem;
+    }
+    
+    .table-premium tbody td,
+    .table-premium tfoot td {
+        padding: 1rem 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .commande-titre h1 {
+        font-size: 1.5rem;
+    }
+    
+    .info-card-header i {
+        font-size: 1.2rem;
+        padding: 0.4rem;
+    }
+    
+    .info-card-header h5 {
+        font-size: 1rem;
+    }
+    
+    .info-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+    
+    .info-value {
+        text-align: left;
+    }
+}

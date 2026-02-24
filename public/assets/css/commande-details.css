@@ -1,0 +1,433 @@
+/* ============================================
+   COMMANDE DÉTAIL - DESIGN ULTRA PREMIUM
+   ============================================ */
+
+.commande-detail-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+/* En-tête */
+.commande-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.commande-title {
+    position: relative;
+}
+
+.commande-title h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin: 0;
+    line-height: 1.2;
+    background: linear-gradient(135deg, #1e293b, #04BF9D);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.commande-title .commande-date {
+    color: #64748b;
+    font-size: 1rem;
+    margin-top: 0.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.commande-title .commande-date i {
+    color: #04BF9D;
+}
+
+.btn-retour {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.8rem;
+    background: white;
+    color: #1e293b;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    border: 2px solid #e2e8f0;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+}
+
+.btn-retour:hover {
+    background: #04BF9D;
+    color: white;
+    border-color: #04BF9D;
+    transform: translateX(-5px);
+    box-shadow: 0 10px 15px -3px rgba(4, 191, 157, 0.3);
+}
+
+/* Grille d'informations */
+.commande-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.info-card {
+    background: white;
+    border-radius: 20px;
+    padding: 1.8rem;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.info-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #04BF9D, #027373);
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 30px -10px rgba(4, 191, 157, 0.2);
+}
+
+.info-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.info-card h3 i {
+    color: #04BF9D;
+    font-size: 1.3rem;
+}
+
+/* Badge statut */
+.statut-badge {
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.statut-badge.en_attente {
+    background: #fef3c7;
+    color: #92400e;
+    border: 1px solid #fbbf24;
+}
+.statut-badge.confirmee {
+    background: #dbeafe;
+    color: #1e40af;
+    border: 1px solid #3b82f6;
+}
+.statut-badge.payee {
+    background: #d1fae5;
+    color: #065f46;
+    border: 1px solid #10b981;
+}
+.statut-badge.en_preparation {
+    background: #ede9fe;
+    color: #5b21b6;
+    border: 1px solid #8b5cf6;
+}
+.statut-badge.expediee {
+    background: #ffedd5;
+    color: #9a3412;
+    border: 1px solid #f97316;
+}
+.statut-badge.livree {
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #22c55e;
+}
+.statut-badge.annulee {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #ef4444;
+}
+
+/* Informations boutique */
+.boutique-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.boutique-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid #e2e8f0;
+}
+
+.boutique-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.boutique-logo-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #04BF9D, #027373);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.boutique-nom {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.25rem;
+}
+
+.boutique-lien {
+    color: #04BF9D;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: gap 0.2s ease;
+}
+
+.boutique-lien:hover {
+    gap: 0.6rem;
+}
+
+/* Adresse */
+.adresse-content {
+    line-height: 1.8;
+    color: #334155;
+}
+
+.adresse-content i {
+    color: #04BF9D;
+    width: 20px;
+    margin-right: 0.5rem;
+}
+
+/* Tableau produits */
+.produits-card {
+    background: white;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+    margin-bottom: 2.5rem;
+}
+
+.produits-card .card-header {
+    background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+    padding: 1.5rem;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.produits-card .card-header h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.produits-card .card-header h2 i {
+    color: #04BF9D;
+}
+
+.table-produits {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-produits thead th {
+    background: #f8fafc;
+    padding: 1.2rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #64748b;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.table-produits tbody td {
+    padding: 1.2rem 1rem;
+    border-bottom: 1px solid #f1f5f9;
+    color: #1e293b;
+}
+
+.table-produits tfoot {
+    background: #f8fafc;
+}
+
+.table-produits tfoot td {
+    padding: 1rem;
+    font-weight: 600;
+}
+
+.table-produits .total-row {
+    font-size: 1.2rem;
+    color: #1e293b;
+}
+
+.table-produits .total-row td:last-child {
+    color: #059669;
+    font-weight: 800;
+    font-size: 1.4rem;
+}
+
+/* Paiements */
+.paiements-card {
+    background: white;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+}
+
+.paiements-card .card-header {
+    background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+    padding: 1.5rem;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.paiements-card .card-header h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.paiements-card .card-header h2 i {
+    color: #04BF9D;
+}
+
+.table-paiements {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-paiements thead th {
+    background: #f8fafc;
+    padding: 1rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #64748b;
+}
+
+.table-paiements tbody td {
+    padding: 1rem;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+/* Bouton annulation */
+.action-container {
+    text-align: right;
+    margin-top: 2rem;
+}
+
+.btn-annuler {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2.5rem;
+    background: white;
+    color: #ef4444;
+    border: 2px solid #fee2e2;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-annuler:hover {
+    background: #ef4444;
+    color: white;
+    border-color: #ef4444;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -5px rgba(239, 68, 68, 0.3);
+}
+
+.btn-annuler i {
+    transition: transform 0.3s ease;
+}
+
+.btn-annuler:hover i {
+    transform: rotate(90deg);
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.info-card {
+    animation: slideIn 0.5s ease forwards;
+}
+
+.info-card:nth-child(1) { animation-delay: 0.1s; }
+.info-card:nth-child(2) { animation-delay: 0.2s; }
+.info-card:nth-child(3) { animation-delay: 0.3s; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .commande-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .commande-title h1 {
+        font-size: 1.8rem;
+    }
+    
+    .table-produits {
+        font-size: 0.9rem;
+    }
+    
+    .table-produits tfoot td {
+        padding: 0.8rem;
+    }
+    
+    .btn-retour {
+        width: 100%;
+        justify-content: center;
+    }
+}

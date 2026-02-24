@@ -1,0 +1,19 @@
+# Activation du rewrite engine
+RewriteEngine On
+
+# Si la requête est déjà vers public/, on ne fait rien
+RewriteRule ^public/ - [L]
+
+# Rediriger tout le reste vers public/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ public/index.php?url=$1 [QSA,L]
+
+# Bloquer les fichiers sensibles
+<FilesMatch "\.(env|log|ini|sql|sh|md)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Protection des dossiers sensibles
+RewriteRule ^(app|config|core|storage)/ - [F]

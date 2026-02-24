@@ -1,0 +1,21 @@
+# Fichiers de configuration
+/config/database.php
+.env
+
+# Logs
+/storage/logs/*.log
+
+# Uploads
+/public/assets/uploads/*
+!/public/assets/uploads/.gitkeep
+
+# Cache et temp
+/temp/
+/cache/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

@@ -1,0 +1,806 @@
+/* ============================================
+   PAGE CHOIX PAIEMENT
+   ============================================ */
+
+.paiement-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Flèche retour */
+.retour-header {
+    margin-bottom: 2rem;
+}
+
+.btn-retour {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #64748b;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.btn-retour:hover {
+    color: #04BF9D;
+}
+
+.btn-retour i {
+    font-size: 1.2rem;
+}
+
+/* Titre */
+.paiement-container h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.paiement-modes {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    border: 1px solid #e2e8f0;
+    margin-bottom: 2rem;
+}
+
+.paiement-modes h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Cartes de mode de paiement */
+.mode-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.mode-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 16px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    gap: 1rem;
+}
+
+.mode-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(4, 191, 157, 0.1);
+}
+
+/* Couleurs spécifiques */
+.mode-card.moncash {
+    border-color: #E30613;
+}
+.mode-card.moncash:hover {
+    border-color: #E30613;
+    background: #fff5f5;
+}
+
+.mode-card.natcash {
+    border-color: #004AAD;
+}
+.mode-card.natcash:hover {
+    border-color: #004AAD;
+    background: #f0f7ff;
+}
+
+.mode-card.carte {
+    border-color: #6366f1;
+}
+.mode-card.carte:hover {
+    border-color: #6366f1;
+    background: #eef2ff;
+}
+
+.mode-card img {
+    width: 80px;
+    height: auto;
+    object-fit: contain;
+}
+
+.mode-card i {
+    font-size: 3rem;
+    color: #6366f1;
+}
+
+.mode-card span {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+/* Récapitulatif */
+.recap-paiement {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 16px;
+    padding: 1.5rem;
+    border: 1px solid #e2e8f0;
+}
+
+.recap-paiement h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #64748b;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.recap-paiement .total {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.recap-paiement .total strong {
+    color: #059669;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .paiement-container h1 {
+        font-size: 1.5rem;
+    }
+    
+    .mode-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .mode-card {
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 1rem 2rem;
+    }
+    
+    .mode-card img {
+        width: 50px;
+    }
+}
+
+/* ============================================
+   PAGE FORMULAIRE PAIEMENT
+   ============================================ */
+
+.paiement-form {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.mode-logo {
+    width: 60px;
+    height: auto;
+    object-fit: contain;
+}
+
+.form-header h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+}
+
+.boutique-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8fafc;
+    padding: 1rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+
+.boutique-info .badge {
+    background: #04BF9D;
+    color: white;
+    padding: 0.25rem 1rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.boutique-info .total {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.boutique-info .total strong {
+    color: #059669;
+    font-size: 1.4rem;
+    margin-left: 0.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+}
+
+.form-group label i {
+    color: #04BF9D;
+    font-size: 1.1rem;
+}
+
+.input-prefix {
+    display: flex;
+    align-items: center;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+}
+
+.input-prefix:focus-within {
+    border-color: #04BF9D;
+}
+
+.prefix {
+    padding: 0.75rem 1rem;
+    background: #f1f5f9;
+    color: #64748b;
+    font-weight: 500;
+    border-right: 2px solid #e2e8f0;
+}
+
+.input-prefix input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+}
+
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+}
+
+.form-group input[type="password"]:focus {
+    border-color: #04BF9D;
+    outline: none;
+}
+
+.btn-payer {
+    width: 100%;
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+    margin: 2rem 0 1rem;
+}
+
+.btn-payer:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    filter: brightness(1.1);
+}
+
+.secure-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.secure-badge i {
+    color: #04BF9D;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .paiement-form {
+        padding: 1.5rem;
+    }
+    
+    .form-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .boutique-info {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+}
+
+/* ============================================
+   PAGE OTP
+   ============================================ */
+
+.otp-form {
+    text-align: center;
+}
+
+.otp-message {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: #f0f9ff;
+    border-radius: 16px;
+    border-left: 4px solid #04BF9D;
+}
+
+.otp-message i {
+    font-size: 3rem;
+    color: #04BF9D;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.otp-message p {
+    color: #1e293b;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.otp-message .numero {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #04BF9D;
+    background: white;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    display: inline-block;
+    margin-top: 0.5rem;
+    border: 1px solid #04BF9D;
+}
+
+.otp-inputs {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.otp-code-input {
+    width: 200px;
+    padding: 1rem;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    border: 3px solid #e2e8f0;
+    border-radius: 16px;
+    outline: none;
+    transition: all 0.2s ease;
+    letter-spacing: 8px;
+}
+
+.otp-code-input:focus {
+    border-color: #04BF9D;
+    box-shadow: 0 0 0 3px rgba(4, 191, 157, 0.2);
+}
+
+.otp-actions {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e2e8f0;
+}
+
+.btn-renvoyer {
+    background: transparent;
+    border: 2px solid #e2e8f0;
+    color: #64748b;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.btn-renvoyer:hover {
+    border-color: #04BF9D;
+    color: #04BF9D;
+    background: #f0fdf9;
+}
+
+.btn-renvoyer i {
+    font-size: 1rem;
+}
+
+.btn-renvoyer:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-renvoyer:disabled:hover {
+    border-color: #e2e8f0;
+    color: #64748b;
+    background: transparent;
+}
+
+/* Animation pour le code */
+@keyframes otpPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.otp-code-input:focus {
+    animation: otpPulse 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .otp-code-input {
+        width: 150px;
+        font-size: 1.5rem;
+        letter-spacing: 4px;
+    }
+    
+    .otp-message .numero {
+        font-size: 1rem;
+    }
+}
+/* ============================================
+   PAIEMENT PAR CARTE
+   ============================================ */
+
+.cartes-acceptees {
+    background: #f8fafc;
+    padding: 1rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.cartes-acceptees span {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.cartes-logos {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.carte-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: white;
+}
+
+.carte-badge.visa {
+    background: #1A1F71;
+}
+
+.carte-badge.mastercard {
+    background: #EB001B;
+}
+
+.carte-badge.cb {
+    background: #0069B4;
+}
+
+/* Disposition en ligne */
+.form-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group.half {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+/* Champs de carte */
+.carte-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+}
+
+.carte-input:focus {
+    border-color: #6366f1;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* Groupe expiration */
+.expiration-group {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.exp-input {
+    width: 60px;
+    padding: 0.75rem 0.5rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.exp-input:focus {
+    border-color: #6366f1;
+    outline: none;
+}
+
+.exp-separator {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #64748b;
+}
+
+/* Champ CVV */
+.cvv-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+
+.cvv-input:focus {
+    border-color: #6366f1;
+    outline: none;
+}
+
+/* Icône de cadenas sur le bouton */
+.btn-payer i.bi-lock {
+    font-size: 1rem;
+}
+
+/* Info sécurité supplémentaire */
+.secure-badge i.bi-shield-check {
+    color: #10b981;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .cartes-acceptees {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+.cartes-acceptees {
+    background: #f8fafc;
+    padding: 1rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.cartes-acceptees span {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.cartes-logos {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.carte-logo {
+    height: 30px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+}
+
+.carte-logo:hover {
+    transform: scale(1.1);
+}
+/* ============================================
+   PAGE SUCCÈS PAIEMENT
+   ============================================ */
+
+.paiement-succes-container {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.succes-card {
+    background: white;
+    border-radius: 30px;
+    padding: 3rem;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    animation: slideUp 0.5s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Checkmark animé */
+.checkmark-container {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 2rem;
+}
+
+.checkmark {
+    width: 100%;
+    height: 100%;
+}
+
+.checkmark-circle {
+    stroke: #04BF9D;
+    stroke-width: 2;
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark-check {
+    stroke: #04BF9D;
+    stroke-width: 2;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.4s forwards;
+}
+
+@keyframes stroke {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+.succes-card h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 1rem;
+}
+
+.commande-info {
+    margin: 2rem 0;
+}
+
+.commande-info p {
+    color: #64748b;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.num-commande {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #04BF9D;
+    background: #f0fdf9;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #04BF9D, #027373);
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(4, 191, 157, 0.3);
+}
+
+.btn-secondary {
+    background: #f1f5f9;
+    color: #1e293b;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+    background: #e2e8f0;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .succes-card {
+        padding: 2rem;
+    }
+    
+    .succes-card h1 {
+        font-size: 1.5rem;
+    }
+    
+    .actions {
+        flex-direction: column;
+    }
+    
+    .btn-primary, .btn-secondary {
+        width: 100%;
+    }
+}

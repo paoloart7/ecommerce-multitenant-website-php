@@ -1,0 +1,330 @@
+/* ============================================
+   ORDERS.CSS - GESTION DES COMMANDES
+   ============================================ */
+
+:root {
+    --orders-primary: #04BF9D;
+    --orders-primary-dark: #027373;
+    --orders-primary-soft: rgba(4, 191, 157, 0.1);
+    --orders-success: #10b981;
+    --orders-success-soft: rgba(16, 185, 129, 0.1);
+    --orders-warning: #f59e0b;
+    --orders-warning-soft: rgba(245, 158, 11, 0.1);
+    --orders-danger: #ef4444;
+    --orders-danger-soft: rgba(239, 68, 68, 0.1);
+    --orders-info: #3b82f6;
+    --orders-info-soft: rgba(59, 130, 246, 0.1);
+    --orders-gray-50: #f8fafc;
+    --orders-gray-100: #f1f5f9;
+    --orders-gray-200: #e2e8f0;
+    --orders-gray-300: #cbd5e1;
+    --orders-gray-400: #94a3b8;
+    --orders-gray-500: #64748b;
+    --orders-gray-600: #475569;
+    --orders-gray-700: #334155;
+    --orders-gray-800: #1e293b;
+    --orders-gray-900: #0f172a;
+}
+
+/* ============================================
+   FILTRES
+   ============================================ */
+
+.orders-filters {
+    background: white;
+    border-radius: 20px;
+    padding: 1.5rem;
+    border: 1px solid var(--orders-gray-200);
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.orders-filters:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+}
+
+.orders-filters .form-control,
+.orders-filters .form-select {
+    border: 2px solid var(--orders-gray-200);
+    border-radius: 12px;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.orders-filters .form-control:focus,
+.orders-filters .form-select:focus {
+    border-color: var(--orders-primary);
+    box-shadow: 0 0 0 3px var(--orders-primary-soft);
+    outline: none;
+}
+
+.btn-orders-filter {
+    background: linear-gradient(135deg, var(--orders-primary), var(--orders-primary-dark));
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 0.6rem 1.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-orders-filter:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -5px rgba(4, 191, 157, 0.4);
+}
+
+/* ============================================
+   TABLEAU DES COMMANDES
+   ============================================ */
+
+.orders-table-card {
+    background: white;
+    border-radius: 20px;
+    border: 1px solid var(--orders-gray-200);
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.orders-table-card:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+}
+
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.orders-table thead th {
+    background: linear-gradient(180deg, var(--orders-gray-50), white);
+    padding: 1.2rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--orders-gray-500);
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid var(--orders-gray-200);
+}
+
+.orders-table tbody td {
+    padding: 1.2rem 1rem;
+    border-bottom: 1px solid var(--orders-gray-100);
+    color: var(--orders-gray-600);
+    font-size: 0.95rem;
+    vertical-align: middle;
+    transition: all 0.2s ease;
+}
+
+.orders-table tbody tr {
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.orders-table tbody tr:hover {
+    background: linear-gradient(90deg, var(--orders-primary-soft) 0%, rgba(4, 191, 157, 0.02) 100%);
+}
+
+.orders-table tbody tr::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--orders-primary);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 0 2px 2px 0;
+}
+
+.orders-table tbody tr:hover::after {
+    opacity: 1;
+}
+
+/* Badges de statut - AMÉLIORÉS */
+.badge-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.badge-status i {
+    font-size: 0.8rem;
+}
+
+.badge-status.status-payee {
+    background: var(--orders-success-soft);
+    color: #059669;
+    border-color: rgba(16, 185, 129, 0.2);
+}
+
+.badge-status.status-en_attente {
+    background: var(--orders-warning-soft);
+    color: #d97706;
+    border-color: rgba(245, 158, 11, 0.2);
+}
+
+.badge-status.status-livree {
+    background: var(--orders-info-soft);
+    color: #2563eb;
+    border-color: rgba(59, 130, 246, 0.2);
+}
+
+.badge-status.status-annulee {
+    background: var(--orders-danger-soft);
+    color: #dc2626;
+    border-color: rgba(239, 68, 68, 0.2);
+}
+
+.badge-status.status-remboursee {
+    background: var(--orders-gray-100);
+    color: var(--orders-gray-600);
+    border-color: var(--orders-gray-200);
+}
+
+/* Bouton Voir */
+.btn-view-order {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1.2rem;
+    background: var(--orders-gray-100);
+    color: var(--orders-gray-700);
+    border: 1.5px solid transparent;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.btn-view-order:hover {
+    background: var(--orders-primary);
+    color: white;
+    transform: translateX(3px);
+    box-shadow: 0 5px 12px rgba(4, 191, 157, 0.3);
+}
+
+.btn-view-order i {
+    font-size: 0.9rem;
+}
+
+/* ============================================
+   PAGINATION
+   ============================================ */
+
+.orders-pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-top: 1px solid var(--orders-gray-200);
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.orders-pagination-info {
+    color: var(--orders-gray-500);
+    font-size: 0.9rem;
+}
+
+.orders-pagination-info strong {
+    color: var(--orders-primary);
+    font-weight: 700;
+}
+
+.orders-pagination-nav {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.orders-pagination-nav .page-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    border: 2px solid var(--orders-gray-200);
+    color: var(--orders-gray-600);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-weight: 600;
+}
+
+.orders-pagination-nav .page-link:hover {
+    border-color: var(--orders-primary);
+    color: var(--orders-primary);
+    background: var(--orders-primary-soft);
+    transform: translateY(-2px);
+}
+
+.orders-pagination-nav .page-link.active {
+    background: linear-gradient(135deg, var(--orders-primary), var(--orders-primary-dark));
+    border-color: transparent;
+    color: white;
+}
+
+/* ============================================
+   ÉTAT VIDE
+   ============================================ */
+
+.orders-empty {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.orders-empty i {
+    font-size: 5rem;
+    color: var(--orders-gray-300);
+    margin-bottom: 1rem;
+}
+
+.orders-empty h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--orders-gray-800);
+    margin-bottom: 0.5rem;
+}
+
+.orders-empty p {
+    color: var(--orders-gray-500);
+    margin-bottom: 2rem;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .orders-pagination {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-view-order {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.75rem;
+    }
+    
+    .badge-status {
+        padding: 0.3rem 0.8rem;
+        font-size: 0.7rem;
+    }
+}
