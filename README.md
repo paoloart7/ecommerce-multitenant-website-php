@@ -1,93 +1,85 @@
 # ShopXPao - Plateforme E-commerce Multi-boutiques
 
 ## 📋 Description du projet
-ShopXPao est une plateforme e-commerce innovante permettant à plusieurs vendeurs de créer et gérer leurs propres boutiques en ligne. Le projet suit une architecture MVC (Modèle-Vue-Contrôleur) et propose trois interfaces distinctes : Administration, Vendeurs et Clients.
+ShopXPao est une plateforme e-commerce qui consiste à concevoir et développer un système e-commerce **multi-tenant** (SaaS) où chaque membre dispose de sa propre boutique indépendante. Les vendeurs (tenants) peuvent gérer leur boutique et leur catalogue, tandis que les clients peuvent parcourir, acheter et gérer leur profil.
+
+**Objectif** : Créer une plateforme scalable où chaque boutique est isolée mais partage la même infrastructure.
 
 ## 🏗️ Architecture technique
 
 ### Stack utilisée
-- **Langage** : PHP 8.2 (POO)
-- **Base de données** : MySQL 8.0
+- **Frontend** : HTML5, CSS3, JavaScript, Bootstrap 5, Chart.js
+- **Backend** : PHP 8.2 (POO, MVC maison)
+- **Base de données** : MySQL 8.0 avec isolation multi-tenant (tenant_id)
 - **Serveur** : Apache
-- **Architecture** : MVC maison
-- **Frontend** : Bootstrap 5, JavaScript vanilla, Chart.js
-- **Sécurité** : Sessions, CSRF tokens, validation des entrées
-
-### Structure du projet
-
-
+- **Sécurité** : Sessions, CSRF tokens, hachage des mots de passe
 
 ## 👥 Les 3 interfaces
 
 ### 1. Interface Administrateur (`/admin`)
-- **Supervision globale** de la plateforme
-- **Gestion des utilisateurs** (CRUD complet)
-- **Gestion des boutiques** (validation, suspension)
-- **Modération des produits** (blocage, mise en avant)
-- **Tableau de bord** avec statistiques globales
-- **Gestion des commandes** (supervision)
+- Supervision globale de la plateforme
+- Gestion des utilisateurs et boutiques
+- Validation des inscriptions tenant
 
 ### 2. Interface Vendeur (Tenant) - `/vendeur`
-- **Dashboard** avec chiffre d'affaires et statistiques
-- **Gestion des produits** (CRUD complet avec images)
-- **Gestion des catégories** (hiérarchie parent/enfant)
-- **Gestion des commandes** (liste, détail, changement de statut)
-- **Gestion des clients** de la boutique
-- **Statistiques** détaillées (top produits, évolution)
-- **Paramètres de la boutique** (logo, description, couleurs)
+- Gestion de boutique (EF-010)
+- Gestion du catalogue produits (EF-040)
+- Suivi des commandes et statistiques
 
 ### 3. Interface Client - site public
-- **Page d'accueil** avec produits et boutiques en vedette
-- **Catalogue** avec recherche et filtres
-- **Détail produit** avec images
-- **Panier** (AJAX) avec gestion des quantités
-- **Paiement simulé** (MonCash, NatCash, Carte)
-- **Commandes** (liste et détail)
-- **Profil utilisateur** avec gestion des adresses
+- Parcours et recherche de produits
+- Création et gestion de profil (EF-020, EF-030)
+- Panier d'achat (EF-050)
+- Paiements (EF-060, EF-070, EF-080)
+  - Wallet MonCash
+  - Wallet NatCash
+  - Cartes de crédit
+  - Cartes de débit
 
-## ⚙️ Fonctionnalités principales
+## ⚙️ Fonctionnalités (Exigences)
 
-### Gestion des utilisateurs
+### ✅ EF-010 : Création de boutique
+- Formulaire d'inscription pour les vendeurs
+- Génération automatique du tenant_id
+- Isolation des données par boutique
+
+### ✅ EF-020 / EF-030 : Gestion des utilisateurs
 - Inscription / Connexion sécurisée
-- 3 rôles : Admin, Tenant (vendeur), Client
-- Profil modifiable
-- Upload d'avatar
+- 3 rôles : Admin, Tenant, Client
+- Profil modifiable avec avatar
+- Gestion des adresses de livraison
 
-### Gestion des boutiques
-- Création de boutique pour les vendeurs
-- Paramétrage (logo, couleurs, description)
-- Statistiques par boutique
-
-### Gestion des produits
+### ✅ EF-040 : Gestion des produits
 - CRUD complet avec images multiples
 - Catégorisation hiérarchique
-- Gestion des stocks
-- Prix et promotions
+- Gestion des stocks et prix
+- Produits en vedette
 
-### Gestion des commandes
-- Processus complet (panier → paiement → confirmation)
-- Historique des commandes
-- Changement de statut
-- Validation par le vendeur
+### ✅ EF-050 : Panier de commande
+- Ajout/suppression de produits
+- Gestion des quantités en AJAX
+- Persistance en session/base de données
 
-### Paiement simulé
-- 3 modes : MonCash, NatCash, Carte bancaire
-- Formulaire avec numéro et PIN
+### ✅ EF-060 / EF-070 / EF-080 : Paiements
+- **Wallet MonCash** : simulation avec numéro + PIN
+- **Wallet NatCash** : simulation avec numéro + PIN
+- **Cartes de crédit/débit** : formulaire complet (numéro, date, CVV)
 - Validation OTP simulée
-- Page de succès
+- Enregistrement des transactions
 
-## 🔐 Sécurité
-- Routes protégées par middleware (Auth, Role)
+## 🔐 Sécurité multi-tenant (ENF-010)
+- Isolation stricte des données par `tenant_id`
+- Vérification systématique dans les requêtes
+- Middleware de contrôle d'accès par rôle
 - Tokens CSRF sur tous les formulaires
-- Hachage des mots de passe (password_hash)
 - Sessions sécurisées avec fingerprint
-- Validation des entrées
 
-## 📊 Base de données
-- Structure relationnelle optimisée
-- Contraintes d'intégrité (clés étrangères)
-- Triggers pour l'audit et les mises à jour automatiques
-- Vues pour les statistiques
+## 📊 Qualité et Performance (ENF-020, ENF-030)
+- Architecture MVC propre et extensible
+- Code commenté et structuré
+- Optimisation des requêtes SQL
+- Pagination des résultats
+- Design responsive (mobile-first)
 
 ## 🚀 Installation et configuration
 
@@ -95,10 +87,11 @@ ShopXPao est une plateforme e-commerce innovante permettant à plusieurs vendeur
 - PHP 8.0+
 - MySQL 5.7+
 - Apache avec mod_rewrite
+- Git
 
 ### Installation
 1. Cloner le projet dans `htdocs`
-2. Importer la base de données (`ecommerce_multitenant.sql`)
+2. Importer la base de données (`ecommerce_multitenant.sql`) dans phpMyAdmin
 3. Configurer `config/database.php`
 4. Lancer le serveur Apache
 5. Accéder à `http://localhost/ShopXPao/public`
@@ -106,7 +99,7 @@ ShopXPao est une plateforme e-commerce innovante permettant à plusieurs vendeur
 ### Comptes de test
 - **Admin** : admin@shopxpao.ht / password
 - **Vendeur** : jean.pierre@email.com / password
-- **Client** : michel.joseph@email.com / password
+- **Client** : chantalepierre-saint@gmail.com/Chantoutou820
 
 ## 🎯 Points forts du projet
 - ✅ Architecture MVC propre et extensible
@@ -117,7 +110,12 @@ ShopXPao est une plateforme e-commerce innovante permettant à plusieurs vendeur
 - ✅ Code commenté et structuré
 
 ## 📝 Auteur
-Karlsen PAUL - Projet pour le cours TDS / Démonstration
+Karlsen PAUL - Projet pour le cours Technique de Développement des Systèmes (TDS) - INF322
+Université Quisqueya - Faculté des Sciences de Génie et d'Architecture (FSGA)
+Professeur : Jean Andris ADAM
 
 ## 📅 Date
 Février 2026
+
+🔗 Lien du projet
+https://github.com/paoloart7/ecommerce-multitenant-website-php.git
